@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#060A17">
+<meta name="robots" content="noindex, nofollow">
+<title>Bros de lei 2º ano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#060A17; --surface:rgba(18,25,46,.78); --surface-solid:#111831; --surface-2:#1B2442; --ink:#EAF4FA; --muted:#8C9CC0; --line:#233052;
+  --cyan:#3FE3EC; --cyan-soft:rgba(63,227,236,.12); --violet:#7B5CFF; --term:#4BE39A;
+  --c-ams:#A98BFF; --c-asi:#5AA9FF; --c-est:#3FE3EC; --c-poo:#FF7EAD; --c-pwc:#F6B45A; --c-rcd1:#6FE39A;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:
+    radial-gradient(900px 480px at 85% -120px,rgba(123,92,255,.38),transparent 70%),
+    radial-gradient(700px 420px at 0% 10%,rgba(63,227,236,.10),transparent 70%),
+    var(--bg);
+  color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;
+  padding-inline:16px;padding-block:28px 56px;min-height:100vh;
+}
+#sky{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.wrap{position:relative;z-index:1;max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:30px}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance}
+
+/* ---------- header ---------- */
+header{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center}
+.badge{position:relative;width:128px;height:128px;border-radius:50%;display:grid;place-items:center}
+.badge::before{content:"";position:absolute;inset:-5px;border-radius:50%;background:conic-gradient(from 0deg,var(--cyan),var(--violet),transparent 55%,var(--cyan));filter:blur(.5px);animation:spin 9s linear infinite}
+.badge::after{content:"";position:absolute;inset:-1px;border-radius:50%;background:var(--bg)}
+.badge img{position:relative;z-index:1;width:120px;height:120px;border-radius:50%;box-shadow:0 0 38px rgba(63,227,236,.45);object-fit:cover;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.htxt{display:flex;flex-direction:column;gap:10px;min-width:0}
+.prompt{font-family:var(--mono);font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prompt b{color:var(--term);font-weight:500}
+.prompt i{font-style:normal;color:var(--cyan)}
+h1{font-size:clamp(38px,7.4vw,62px);font-weight:800;letter-spacing:-.03em;line-height:.95}
+h1 span{background:linear-gradient(90deg,var(--cyan),#9A86FF);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 18px rgba(63,227,236,.35))}
+.sub{display:flex;flex-wrap:wrap;gap:6px}
+.pill{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;padding:4px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:rgba(17,24,49,.6)}
+@media (max-width:560px){
+  header{grid-template-columns:1fr;gap:16px}
+  .badge{width:84px;height:84px}.badge img{width:78px;height:78px}
+}
+
+/* ---------- terminal hero ---------- */
+.term{background:linear-gradient(160deg,rgba(20,28,56,.92),rgba(14,12,40,.92));border:1px solid rgba(63,227,236,.35);border-radius:18px;box-shadow:0 0 0 1px rgba(63,227,236,.08),0 0 50px -12px rgba(63,227,236,.45),0 30px 60px -30px rgba(0,0,0,.8);overflow:hidden;backdrop-filter:blur(6px)}
+.term-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid var(--line);background:rgba(8,12,26,.55)}
+.term-bar i{width:11px;height:11px;border-radius:50%}
+.term-bar i:nth-child(1){background:#FF5F57}.term-bar i:nth-child(2){background:#FEBC2E}.term-bar i:nth-child(3){background:#28C840}
+.term-bar span{margin-left:10px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.term-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:14px}
+.cmd{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.cmd b{color:var(--term);font-weight:500}
+.next-uc{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--c);display:flex;align-items:center;gap:8px}
+.next-uc::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 10px var(--c)}
+.next-t{font-family:var(--display);font-size:clamp(24px,4.6vw,34px);font-weight:700;line-height:1.1}
+.next-when{color:var(--muted);font-size:14.5px;margin-top:-6px}
+
+/* ---------- semester track ---------- */
+.strip{display:flex;flex-direction:column;gap:10px}
+.strip-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.label b{color:var(--cyan);font-weight:500}
+.track{position:relative;height:52px;margin-top:14px;border-radius:14px;background:var(--surface);border:1px solid var(--line);overflow:visible}
+.track .elapsed{position:absolute;inset:0 auto 0 0;border-radius:13px 0 0 13px;background:linear-gradient(90deg,rgba(123,92,255,.28),rgba(63,227,236,.22))}
+.track .today{position:absolute;top:-6px;bottom:-6px;width:2px;background:var(--cyan);box-shadow:0 0 12px var(--cyan);border-radius:2px}
+.track .today::before{content:"hoje";position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10px;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em}
+.months{position:relative;height:16px;font-family:var(--mono);font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.months span{position:absolute;top:0;transform:translateX(-50%)}
+
+/* ---------- filters ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:500 13px/1 var(--body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:9px 13px;display:inline-flex;align-items:center;gap:7px;cursor:pointer;transition:border-color .15s,box-shadow .15s,background .15s}
+.chip i{width:9px;height:9px;border-radius:50%;background:var(--c,var(--cyan));box-shadow:0 0 8px var(--c,var(--cyan))}
+.chip:hover{border-color:var(--c,var(--cyan))}
+.chip[aria-pressed="true"]{background:var(--c,var(--cyan));color:#06121A;border-color:var(--c,var(--cyan));box-shadow:0 0 18px -2px var(--c,var(--cyan))}
+.chip[aria-pressed="true"] i{background:#06121A;box-shadow:none}
+.chip .short{display:none}
+@media (max-width:640px){.filters{flex-wrap:nowrap;overflow-x:auto;margin-inline:-16px;padding-inline:16px;padding-block:2px 8px;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}.chip{flex:none}.chip .full{display:none}.chip .short{display:inline}}
+
+/* ---------- timeline ---------- */
+.tl{position:relative;display:flex;flex-direction:column;gap:12px}
+.mh{display:grid;grid-template-columns:70px 20px 1fr;gap:0 10px;align-items:center;margin-top:10px}
+.mh span{grid-column:3;font-family:var(--mono);font-size:12.5px;color:var(--muted);letter-spacing:.04em}
+.mh span b{color:var(--term);font-weight:500}
+.row{display:grid;grid-template-columns:70px 20px 1fr;gap:0 10px;align-items:center}
+.date{display:flex;flex-direction:column;align-items:flex-end;line-height:1}
+.date b{font-family:var(--display);font-size:32px;font-weight:800;font-variant-numeric:tabular-nums;color:var(--ink)}
+.date small{font-family:var(--mono);font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:5px}
+.node{justify-self:center;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--c);box-shadow:0 0 12px var(--c)}
+.card{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:center;backdrop-filter:blur(6px)}
+.cbody{position:relative;display:flex;flex-direction:column;gap:4px;min-width:0}
+.uc{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--c)}
+.t{font-weight:600;font-size:16.5px;line-height:1.3}
+.x{font-size:13.5px;color:var(--muted)}
+.row.tba .card{background:transparent;border-style:dashed}
+.row.tba .node{border-style:dashed;box-shadow:none}
+.row.tba .date b{color:var(--muted)}
+.empty{color:var(--muted);font-size:14px}
+@media (max-width:560px){
+  .tl::before{left:57px}
+  .row,.mh{grid-template-columns:48px 20px 1fr;gap:0 6px}
+  .date b{font-size:25px}
+  .card{grid-template-columns:1fr;padding:13px 14px}
+}
+
+footer{font-family:var(--mono);color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:16px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+footer b{color:var(--term);font-weight:500}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}
+.cd div{border:1px solid var(--line);background:rgba(6,10,23,.6);border-radius:12px;padding:10px 6px 8px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.cd b{font-family:var(--mono);font-size:clamp(26px,6vw,40px);font-weight:700;color:var(--cyan);font-variant-numeric:tabular-nums;line-height:1;text-shadow:0 0 18px rgba(63,227,236,.55)}
+.cd small{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.after{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;color:var(--muted);border-top:1px dashed var(--line);padding-top:12px;margin-top:14px}
+.after .mini{display:inline-flex;align-items:center;gap:7px;padding:4px 10px;border-radius:8px;background:rgba(27,36,66,.7);color:var(--ink);font-size:12.5px}
+.after .mini i{width:7px;height:7px;border-radius:50%;background:var(--c)}
+.after .mini em{font-style:normal;font-family:var(--mono);color:var(--muted);font-size:11.5px}
+</style>
+</head>
+<body>
+
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="wrap">
+  <header>
+    <div class="badge"><img alt="Bros de lei" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=200&h=200&fit=crop"></div>
+    <div class="htxt">
+      <h1>Bros de lei</h1>
+      <div class="sub"><span class="pill">2.º ano</span><span class="pill">1.º semestre</span><span class="pill">2026/27</span><span class="pill">Pós-laboral</span></div>
+    </div>
+  </header>
+
+  <section class="term" aria-live="polite">
+    <div class="term-bar"><i></i><i></i><i></i><span>proxima_avaliacao.sh</span></div>
+    <div class="term-body" id="next">
+      <div class="cmd"><b>$</b> ./proxima --avaliacao</div>
+      <div class="next-t">Sem avaliações agendadas de momento.</div>
+      <div class="next-when">Adiciona as datas no código à medida que forem anunciadas.</div>
+    </div>
+  </section>
+
+  <section class="strip" aria-label="Linha do semestre">
+    <div class="strip-head"><span class="label">// semestre</span><span class="label" id="progress"></span></div>
+    <div class="track" id="track"></div>
+    <div class="months" id="months"></div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:18px">
+    <div class="filters" id="filters" role="group" aria-label="Filtrar por unidade curricular"></div>
+    <div class="tl" id="list"></div>
+  </section>
+
+  <footer>
+    <span><b>$</b> criado por Marcelo</span>
+    <span>// data errada ou nova? fala com o Marcelo</span>
+  </footer>
+</div>
+
+<script>
+const UC = {
+  ams:{s:"AMS", n:"Análise e Modelação de Sistemas", c:"--c-ams"},
+  asi:{s:"ASI", n:"Arquitetura de Sistemas de Informação", c:"--c-asi"},
+  est:{s:"EST", n:"Estatística", c:"--c-est"},
+  poo:{s:"POO", n:"Programação Orientada a Objetos", c:"--c-poo"},
+  pwc:{s:"PWC", n:"Programação Web - Cliente", c:"--c-pwc"},
+  rcd1:{s:"RCD1", n:"Redes e Comunicação de Dados 1", c:"--c-rcd1"}
+};
+
+// Os teus eventos
+const EVENTS = [
+  {uc: "ams", d: "2026-10-27", t: "Trabalho prático de grupo", k: "Entrega", tags:["Grupo"]},
+  {uc: "ams", d: "2026-11-03", t: "Teste", k: "Teste"}
+];
+
+const PENDING = ["asi","est","poo","pwc","rcd1"];
+
+const SEM_START = new Date(2026,8,21), SEM_END = new Date(2027,1,13);
+const MONTHS = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+const MON = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+const WD = ["dom","seg","ter","qua","qui","sex","sáb"];
+const WDL = ["domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado"];
+
+const parse = s => { const [y,m,d]=s.split("-").map(Number); return new Date(y,m-1,d); };
+const midnight = () => { const n=new Date(); return new Date(n.getFullYear(),n.getMonth(),n.getDate()); };
+const diff = d => Math.round((d - midnight())/86400000);
+const pad = n => String(n).padStart(2,"0");
+const leftTxt = n => n===0?"hoje":n===1?"amanhã":n>1?`faltam ${n} dias`:n===-1?"ontem":`há ${-n} dias`;
+const target = e => { const d=parse(e.d); d.setHours(19,0); return d; };
+
+let filter = "all";
+try{ filter = localStorage.getItem("lei-filter") || "all"; }catch(e){}
+if(filter!=="all" && !UC[filter]) filter="all";
+
+let tick;
+function renderNext(){
+  const now = new Date();
+  const up = EVENTS.filter(e=>target(e)>now).sort((a,b)=>target(a)-target(b));
+  const el = document.getElementById("next");
+  clearInterval(tick);
+  if(!up.length){ el.innerHTML = `<div class="cmd"><b>$</b> ./proxima</div><div class="next-t">Sem avaliações agendadas para breve.</div>`; return; }
+  const e = up[0], d = parse(e.d);
+  el.innerHTML = `
+    <div class="cmd"><b>$</b> ./proxima --avaliacao</div>
+    <div class="next-uc" style="--c:var(${UC[e.uc].c})">${UC[e.uc].n}</div>
+    <div class="next-t">${e.t}</div>
+    <div class="next-when">${WDL[d.getDay()]}, ${d.getDate()} de ${MONTHS[d.getMonth()]} · ${e.k}</div>
+    <div class="cd" role="timer"><div><b id="cd-d">0</b><small>dias</small></div><div><b id="cd-h">00</b><small>horas</small></div><div><b id="cd-m">00</b><small>min</small></div><div><b id="cd-s">00</b><small>seg</small></div></div>
+    ${up.length>1?`<div class="after"><span>a seguir:</span>${up.slice(1,3).map(n=>{const nd=parse(n.d);return `<span class="mini" style="--c:var(${UC[n.uc].c})"><i></i>${UC[n.uc].s} · ${n.t} <em>${nd.getDate()} ${MON[nd.getMonth()]}</em></span>`}).join("")}</div>`:""}`;
+  
+  const T = target(e);
+  const upd = () => {
+    let s = Math.max(0, Math.floor((T - new Date())/1000));
+    if(s===0){ renderAll(); return; }
+    const dd=Math.floor(s/86400); s%=86400; const hh=Math.floor(s/3600); s%=3600; const mm=Math.floor(s/60); s%=60;
+    const cdD = document.getElementById("cd-d"), cdH = document.getElementById("cd-h"), cdM = document.getElementById("cd-m"), cdS = document.getElementById("cd-s");
+    if(cdD) cdD.textContent=dd;
+    if(cdH) cdH.textContent=pad(hh);
+    if(cdM) cdM.textContent=pad(mm);
+    if(cdS) cdS.textContent=pad(s);
+  };
+  upd(); tick = setInterval(upd,1000);
+}
+
+function renderTrack(){
+  const span = SEM_END - SEM_START, pos = d => Math.min(100,Math.max(0,(d-SEM_START)/span*100));
+  const today = new Date(), tp = pos(today);
+  let h = `<div class="elapsed" style="width:${tp}%"></div>`;
+  if(today>=SEM_START && today<=SEM_END) h += `<span class="today" style="left:${tp}%"></span>`;
+  document.getElementById("track").innerHTML = h;
+  document.getElementById("progress").innerHTML = `<b>${Math.round(tp)}%</b> do semestre`;
+}
+
+function renderFilters(){
+  const f = document.getElementById("filters");
+  f.innerHTML = `<button class="chip" data-f="all" aria-pressed="${filter==="all"}">Todas</button>` +
+    Object.keys(UC).map(k=>`<button class="chip" data-f="${k}" aria-pressed="${filter===k}" style="--c:var(${UC[k].c})"><i></i><span class="full">${UC[k].n}</span><span class="short">${UC[k].s}</span></button>`).join("");
+}
+
+function renderList(){
+  const list = document.getElementById("list");
+  const evs = EVENTS.filter(e=>filter==="all"||e.uc===filter);
+  const pend = PENDING.filter(k=>filter==="all"||k===filter);
+  let html = "";
+  
+  evs.forEach(e=>{
+    const d=parse(e.d), n=diff(d), past=n<0, soon=!past&&n<=7;
+    const tags = [`<span class="tag k" style="background:rgba(63,227,236,.18);color:var(--cyan)">${e.k}</span>`]
+      .concat((e.tags||[]).map(t=>`<span class="tag soft" style="color:var(--muted)">${t}</span>`)).join("");
+    html += `<div class="row${past?" past":""}${soon?" soon":""}" style="--c:var(${UC[e.uc].c})">
+      <div class="date"><b>${d.getDate()}</b><small>${WD[d.getDay()]}</small></div>
+      <span class="node"></span>
+      <article class="card">
+        <div class="cbody">
+          <span class="uc">${UC[e.uc].n}</span>
+          <span class="t">${e.t}</span>
+          <div class="tags" style="display:flex;gap:6px;margin-top:4px">${tags}</div>
+        </div>
+        <div class="side" style="font-family:var(--mono);font-size:12px">
+          <span class="left" style="padding:5px 9px;border-radius:8px;background:var(--surface-2)">${leftTxt(n)}</span>
+        </div>
+      </article>
+    </div>`;
+  });
+
+  if(pend.length){
+    html += `<div class="mh"><span><b>//</b> unidades curriculares (sem datas agendadas)</span></div>`;
+    html += pend.map(k=>`<div class="row tba" style="--c:var(${UC[k].c})">
+      <div class="date"><b>?</b><small>tba</small></div>
+      <span class="node"></span>
+      <article class="card"><div class="cbody"><span class="uc">${UC[k].n}</span><span class="t">Testes e trabalhos</span><span class="x">As datas entram aqui assim que forem anunciadas.</span></div></article>
+    </div>`).join("");
+  }
+  list.innerHTML = html || `<p class="empty">Sem cadeiras para esta seleção.</p>`;
+}
+
+function renderAll(){ renderNext(); renderTrack(); renderFilters(); renderList(); }
+document.getElementById("filters").addEventListener("click", ev=>{
+  const b = ev.target.closest(".chip"); if(!b) return;
+  filter = b.dataset.f; try{ localStorage.setItem("lei-filter", filter); }catch(e){}
+  renderTrack(); renderFilters(); renderList();
+});
+renderAll();
+</script>
+
+</body>
+</html>
